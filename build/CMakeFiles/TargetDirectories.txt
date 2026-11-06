@@ -1,0 +1,8 @@
+/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/tracker.dir
+/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/main.dir
+/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/edit_cache.dir
+/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/rebuild_cache.dir
+/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/list_install_components.dir
+/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/install.dir
+/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/install/local.dir
+/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/install/strip.dir

@@ -1,0 +1,6 @@
+{
+     "files.exclude": {
+        "**/*:Zone.Identifier": true
+    },
+    "cmake.sourceDirectory": "/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2"
+}
