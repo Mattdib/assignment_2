@@ -147,6 +147,34 @@ namespace viewer
     viewer_->setShapeRenderingProperties(pcl::visualization::PCL_VISUALIZER_OPACITY, opacity * 0.3, cubeFill);
   }
 
+void Renderer::renderArea(double x_min, double x_max, double y_min, double y_max,
+                          int count, const Color &color, float opacity)
+{
+  pcl::PointXYZ p1(x_min, y_min, 0.0);
+  pcl::PointXYZ p2(x_max, y_min, 0.0);
+  pcl::PointXYZ p3(x_max, y_max, 0.0);
+  pcl::PointXYZ p4(x_min, y_max, 0.0);
+
+  // 4 lati del rettangolo
+  viewer_->addLine(p1, p2, color.r, color.g, color.b, "area_line_1");
+  viewer_->addLine(p2, p3, color.r, color.g, color.b, "area_line_2");
+  viewer_->addLine(p3, p4, color.r, color.g, color.b, "area_line_3");
+  viewer_->addLine(p4, p1, color.r, color.g, color.b, "area_line_4");
+
+  // Spessore linee
+  viewer_->setShapeRenderingProperties(pcl::visualization::PCL_VISUALIZER_LINE_WIDTH, 3.0, "area_line_1");
+  viewer_->setShapeRenderingProperties(pcl::visualization::PCL_VISUALIZER_LINE_WIDTH, 3.0, "area_line_2");
+  viewer_->setShapeRenderingProperties(pcl::visualization::PCL_VISUALIZER_LINE_WIDTH, 3.0, "area_line_3");
+  viewer_->setShapeRenderingProperties(pcl::visualization::PCL_VISUALIZER_LINE_WIDTH, 3.0, "area_line_4");
+
+  // Testo 3D con il conteggio
+  double text_x = (x_min + x_max) / 2.0;
+  double text_y = (y_min + y_max) / 2.0;
+  std::string label = "Area count: " + std::to_string(count);
+  viewer_->addText3D(label, pcl::PointXYZ(text_x, text_y, 0.5), 0.3,
+                     color.r * 255, color.g * 255, color.b * 255, "monitorAreaText", 0);
+}
+
   void Renderer::initCamera(CameraAngle view_angle)
   {
 

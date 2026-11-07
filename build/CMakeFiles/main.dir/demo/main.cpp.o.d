@@ -1481,6 +1481,8 @@ CMakeFiles/main.dir/demo/main.cpp.o: \
  /usr/include/pcl-1.15/pcl/common/common.h \
  /usr/include/pcl-1.15/pcl/common/impl/common.hpp \
  /home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/include/viewer/Renderer.h \
+ /home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/include/AreaCounter.h \
+ /home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/include/tracker/Tracklet.h \
  /usr/include/boost/filesystem.hpp \
  /usr/include/boost/filesystem/config.hpp \
  /usr/include/boost/system/api_config.hpp \

@@ -211,6 +211,30 @@ demo/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/demo/main.cpp.s
 .PHONY : demo/main.cpp.s
 
+src/AreaCounter.o: src/AreaCounter.cpp.o
+.PHONY : src/AreaCounter.o
+
+# target to build an object file
+src/AreaCounter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tracker.dir/build.make CMakeFiles/tracker.dir/src/AreaCounter.cpp.o
+.PHONY : src/AreaCounter.cpp.o
+
+src/AreaCounter.i: src/AreaCounter.cpp.i
+.PHONY : src/AreaCounter.i
+
+# target to preprocess a source file
+src/AreaCounter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tracker.dir/build.make CMakeFiles/tracker.dir/src/AreaCounter.cpp.i
+.PHONY : src/AreaCounter.cpp.i
+
+src/AreaCounter.s: src/AreaCounter.cpp.s
+.PHONY : src/AreaCounter.s
+
+# target to generate assembly for a file
+src/AreaCounter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tracker.dir/build.make CMakeFiles/tracker.dir/src/AreaCounter.cpp.s
+.PHONY : src/AreaCounter.cpp.s
+
 src/CloudManager.o: src/CloudManager.cpp.o
 .PHONY : src/CloudManager.o
 
@@ -348,6 +372,9 @@ help:
 	@echo "... demo/main.o"
 	@echo "... demo/main.i"
 	@echo "... demo/main.s"
+	@echo "... src/AreaCounter.o"
+	@echo "... src/AreaCounter.i"
+	@echo "... src/AreaCounter.s"
 	@echo "... src/CloudManager.o"
 	@echo "... src/CloudManager.i"
 	@echo "... src/CloudManager.s"

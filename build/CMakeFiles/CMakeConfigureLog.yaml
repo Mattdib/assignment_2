@@ -48624,3 +48624,99 @@ events:
       CMAKE_MODULE_PATH:
         - "/usr/lib/x86_64-linux-gnu/cmake/pcl/Modules"
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-4.2/Modules/FindMPI.cmake:1447 (try_compile)"
+      - "/usr/share/cmake-4.2/Modules/FindMPI.cmake:1491 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-4.2/Modules/FindMPI.cmake:1814 (_MPI_check_lang_works)"
+      - "CMakeLists.txt:16 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/CMakeScratch/TryCompile-w2O7vM"
+      binary: "/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/CMakeScratch/TryCompile-w2O7vM"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/CMakeScratch/TryCompile-w2O7vM'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_78cd7/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_78cd7.dir/build.make CMakeFiles/cmTC_78cd7.dir/build
+        gmake[1]: Entering directory '/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/CMakeScratch/TryCompile-w2O7vM'
+        Building C object CMakeFiles/cmTC_78cd7.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/x86_64-linux-gnu/openmpi/include -isystem /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_78cd7.dir/test_mpi.c.o -c /home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/CMakeScratch/TryCompile-w2O7vM/test_mpi.c
+        Linking C executable cmTC_78cd7
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_78cd7.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_78cd7.dir/test_mpi.c.o -o cmTC_78cd7  -Wl,-rpath,/usr/lib/x86_64-linux-gnu/openmpi/lib /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so
+        gmake[1]: Leaving directory '/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/CMakeScratch/TryCompile-w2O7vM'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-4.2/Modules/FindMPI.cmake:1447 (try_compile)"
+      - "/usr/share/cmake-4.2/Modules/FindMPI.cmake:1491 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-4.2/Modules/FindMPI.cmake:1814 (_MPI_check_lang_works)"
+      - "CMakeLists.txt:16 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/CMakeScratch/TryCompile-oVrfeA"
+      binary: "/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/CMakeScratch/TryCompile-oVrfeA"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -fPIC"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/CMakeScratch/TryCompile-oVrfeA'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_fba54/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_fba54.dir/build.make CMakeFiles/cmTC_fba54.dir/build
+        gmake[1]: Entering directory '/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/CMakeScratch/TryCompile-oVrfeA'
+        Building CXX object CMakeFiles/cmTC_fba54.dir/test_mpi.cpp.o
+        /usr/bin/c++  -isystem /usr/lib/x86_64-linux-gnu/openmpi/include -isystem /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi -fPIC  -o CMakeFiles/cmTC_fba54.dir/test_mpi.cpp.o -c /home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/CMakeScratch/TryCompile-oVrfeA/test_mpi.cpp
+        Linking CXX executable cmTC_fba54
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fba54.dir/link.txt --verbose=1
+        /usr/bin/c++  -fPIC  CMakeFiles/cmTC_fba54.dir/test_mpi.cpp.o -o cmTC_fba54  -Wl,-rpath,/usr/lib/x86_64-linux-gnu/openmpi/lib /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so
+        gmake[1]: Leaving directory '/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/CMakeScratch/TryCompile-oVrfeA'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-4.2/Modules/FindMPI.cmake:1447 (try_compile)"
+      - "/usr/share/cmake-4.2/Modules/FindMPI.cmake:1841 (_MPI_try_staged_settings)"
+      - "CMakeLists.txt:16 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/CMakeScratch/TryCompile-NgKuIP"
+      binary: "/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/CMakeScratch/TryCompile-NgKuIP"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -fPIC"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/CMakeScratch/TryCompile-NgKuIP'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_4b558/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_4b558.dir/build.make CMakeFiles/cmTC_4b558.dir/build
+        gmake[1]: Entering directory '/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/CMakeScratch/TryCompile-NgKuIP'
+        Building CXX object CMakeFiles/cmTC_4b558.dir/test_mpi.cpp.o
+        /usr/bin/c++  -isystem /usr/lib/x86_64-linux-gnu/openmpi/include -isystem /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi -fPIC  -o CMakeFiles/cmTC_4b558.dir/test_mpi.cpp.o -c /home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/CMakeScratch/TryCompile-NgKuIP/test_mpi.cpp
+        Linking CXX executable cmTC_4b558
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4b558.dir/link.txt --verbose=1
+        /usr/bin/c++  -fPIC  CMakeFiles/cmTC_4b558.dir/test_mpi.cpp.o -o cmTC_4b558  -Wl,-rpath,/usr/lib/x86_64-linux-gnu/openmpi/lib /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so
+        gmake[1]: Leaving directory '/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles/CMakeScratch/TryCompile-NgKuIP'
+        
+      exitCode: 0
+...

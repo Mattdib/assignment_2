@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/tracker.dir/link.d"
+  "CMakeFiles/tracker.dir/src/AreaCounter.cpp.o"
+  "CMakeFiles/tracker.dir/src/AreaCounter.cpp.o.d"
   "CMakeFiles/tracker.dir/src/CloudManager.cpp.o"
   "CMakeFiles/tracker.dir/src/CloudManager.cpp.o.d"
   "CMakeFiles/tracker.dir/src/tracker/KalmanFilter.cpp.o"

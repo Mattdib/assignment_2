@@ -72,10 +72,24 @@ include CMakeFiles/tracker.dir/flags.make
 CMakeFiles/tracker.dir/codegen:
 .PHONY : CMakeFiles/tracker.dir/codegen
 
+CMakeFiles/tracker.dir/src/AreaCounter.cpp.o: CMakeFiles/tracker.dir/flags.make
+CMakeFiles/tracker.dir/src/AreaCounter.cpp.o: /home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/src/AreaCounter.cpp
+CMakeFiles/tracker.dir/src/AreaCounter.cpp.o: CMakeFiles/tracker.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/tracker.dir/src/AreaCounter.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tracker.dir/src/AreaCounter.cpp.o -MF CMakeFiles/tracker.dir/src/AreaCounter.cpp.o.d -o CMakeFiles/tracker.dir/src/AreaCounter.cpp.o -c /home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/src/AreaCounter.cpp
+
+CMakeFiles/tracker.dir/src/AreaCounter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tracker.dir/src/AreaCounter.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/src/AreaCounter.cpp > CMakeFiles/tracker.dir/src/AreaCounter.cpp.i
+
+CMakeFiles/tracker.dir/src/AreaCounter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tracker.dir/src/AreaCounter.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/src/AreaCounter.cpp -o CMakeFiles/tracker.dir/src/AreaCounter.cpp.s
+
 CMakeFiles/tracker.dir/src/CloudManager.cpp.o: CMakeFiles/tracker.dir/flags.make
 CMakeFiles/tracker.dir/src/CloudManager.cpp.o: /home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/src/CloudManager.cpp
 CMakeFiles/tracker.dir/src/CloudManager.cpp.o: CMakeFiles/tracker.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/tracker.dir/src/CloudManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tracker.dir/src/CloudManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tracker.dir/src/CloudManager.cpp.o -MF CMakeFiles/tracker.dir/src/CloudManager.cpp.o.d -o CMakeFiles/tracker.dir/src/CloudManager.cpp.o -c /home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/src/CloudManager.cpp
 
 CMakeFiles/tracker.dir/src/CloudManager.cpp.i: cmake_force
@@ -89,7 +103,7 @@ CMakeFiles/tracker.dir/src/CloudManager.cpp.s: cmake_force
 CMakeFiles/tracker.dir/src/tracker/KalmanFilter.cpp.o: CMakeFiles/tracker.dir/flags.make
 CMakeFiles/tracker.dir/src/tracker/KalmanFilter.cpp.o: /home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/src/tracker/KalmanFilter.cpp
 CMakeFiles/tracker.dir/src/tracker/KalmanFilter.cpp.o: CMakeFiles/tracker.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tracker.dir/src/tracker/KalmanFilter.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/tracker.dir/src/tracker/KalmanFilter.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tracker.dir/src/tracker/KalmanFilter.cpp.o -MF CMakeFiles/tracker.dir/src/tracker/KalmanFilter.cpp.o.d -o CMakeFiles/tracker.dir/src/tracker/KalmanFilter.cpp.o -c /home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/src/tracker/KalmanFilter.cpp
 
 CMakeFiles/tracker.dir/src/tracker/KalmanFilter.cpp.i: cmake_force
@@ -103,7 +117,7 @@ CMakeFiles/tracker.dir/src/tracker/KalmanFilter.cpp.s: cmake_force
 CMakeFiles/tracker.dir/src/tracker/Tracker.cpp.o: CMakeFiles/tracker.dir/flags.make
 CMakeFiles/tracker.dir/src/tracker/Tracker.cpp.o: /home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/src/tracker/Tracker.cpp
 CMakeFiles/tracker.dir/src/tracker/Tracker.cpp.o: CMakeFiles/tracker.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/tracker.dir/src/tracker/Tracker.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/tracker.dir/src/tracker/Tracker.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tracker.dir/src/tracker/Tracker.cpp.o -MF CMakeFiles/tracker.dir/src/tracker/Tracker.cpp.o.d -o CMakeFiles/tracker.dir/src/tracker/Tracker.cpp.o -c /home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/src/tracker/Tracker.cpp
 
 CMakeFiles/tracker.dir/src/tracker/Tracker.cpp.i: cmake_force
@@ -117,7 +131,7 @@ CMakeFiles/tracker.dir/src/tracker/Tracker.cpp.s: cmake_force
 CMakeFiles/tracker.dir/src/tracker/Tracklet.cpp.o: CMakeFiles/tracker.dir/flags.make
 CMakeFiles/tracker.dir/src/tracker/Tracklet.cpp.o: /home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/src/tracker/Tracklet.cpp
 CMakeFiles/tracker.dir/src/tracker/Tracklet.cpp.o: CMakeFiles/tracker.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/tracker.dir/src/tracker/Tracklet.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/tracker.dir/src/tracker/Tracklet.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tracker.dir/src/tracker/Tracklet.cpp.o -MF CMakeFiles/tracker.dir/src/tracker/Tracklet.cpp.o.d -o CMakeFiles/tracker.dir/src/tracker/Tracklet.cpp.o -c /home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/src/tracker/Tracklet.cpp
 
 CMakeFiles/tracker.dir/src/tracker/Tracklet.cpp.i: cmake_force
@@ -131,7 +145,7 @@ CMakeFiles/tracker.dir/src/tracker/Tracklet.cpp.s: cmake_force
 CMakeFiles/tracker.dir/src/viewer/Renderer.cpp.o: CMakeFiles/tracker.dir/flags.make
 CMakeFiles/tracker.dir/src/viewer/Renderer.cpp.o: /home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/src/viewer/Renderer.cpp
 CMakeFiles/tracker.dir/src/viewer/Renderer.cpp.o: CMakeFiles/tracker.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/tracker.dir/src/viewer/Renderer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/tracker.dir/src/viewer/Renderer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tracker.dir/src/viewer/Renderer.cpp.o -MF CMakeFiles/tracker.dir/src/viewer/Renderer.cpp.o.d -o CMakeFiles/tracker.dir/src/viewer/Renderer.cpp.o -c /home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/src/viewer/Renderer.cpp
 
 CMakeFiles/tracker.dir/src/viewer/Renderer.cpp.i: cmake_force
@@ -144,6 +158,7 @@ CMakeFiles/tracker.dir/src/viewer/Renderer.cpp.s: cmake_force
 
 # Object files for target tracker
 tracker_OBJECTS = \
+"CMakeFiles/tracker.dir/src/AreaCounter.cpp.o" \
 "CMakeFiles/tracker.dir/src/CloudManager.cpp.o" \
 "CMakeFiles/tracker.dir/src/tracker/KalmanFilter.cpp.o" \
 "CMakeFiles/tracker.dir/src/tracker/Tracker.cpp.o" \
@@ -153,6 +168,7 @@ tracker_OBJECTS = \
 # External object files for target tracker
 tracker_EXTERNAL_OBJECTS =
 
+libtracker.so: CMakeFiles/tracker.dir/src/AreaCounter.cpp.o
 libtracker.so: CMakeFiles/tracker.dir/src/CloudManager.cpp.o
 libtracker.so: CMakeFiles/tracker.dir/src/tracker/KalmanFilter.cpp.o
 libtracker.so: CMakeFiles/tracker.dir/src/tracker/Tracker.cpp.o
@@ -257,7 +273,7 @@ libtracker.so: /usr/lib/x86_64-linux-gnu/liblz4.so
 libtracker.so: /usr/lib/x86_64-linux-gnu/libxxhash.so
 libtracker.so: /usr/lib/x86_64-linux-gnu/libqhull_r.so.8.0.2
 libtracker.so: CMakeFiles/tracker.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX shared library libtracker.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX shared library libtracker.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/tracker.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

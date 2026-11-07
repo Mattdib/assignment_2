@@ -57,6 +57,9 @@ namespace viewer
 
     void renderBox(const BoxQ &box, int id, const Color &color = Color(1, 0, 0), float opacity = 1.0);
 
+    void renderArea(double x_min, double x_max, double y_min, double y_max,
+                    int count, const Color &color = Color(0, 1, 1), float opacity = 0.3);
+
     void initCamera(CameraAngle view_angle);
 
     bool wasViewerStopped() const;

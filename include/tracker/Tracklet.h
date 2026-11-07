@@ -18,11 +18,11 @@ public:
 
   // getters
   double getPathLength() const;
-  double getX() { return kf_.getX(); }
-  double getY() { return kf_.getY(); }
-  double getXCovariance() { return kf_.getXCovariance(); }
-  double getYCovariance() { return kf_.getYCovariance(); }
-  int getLossCount() { return loss_count_; }
+  double getX() const { return kf_.getX(); }
+  double getY() const { return kf_.getY(); }
+  double getXCovariance() const { return kf_.getXCovariance(); }
+  double getYCovariance() const { return kf_.getYCovariance(); }
+  int getLossCount() const { return loss_count_; }
   int getId() const{ return id_; }
 
 private:

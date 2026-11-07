@@ -1,6 +1,7 @@
 libtracker.so: \
   /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crti.o \
   /usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o \
+  CMakeFiles/tracker.dir/src/AreaCounter.cpp.o \
   CMakeFiles/tracker.dir/src/CloudManager.cpp.o \
   CMakeFiles/tracker.dir/src/tracker/KalmanFilter.cpp.o \
   CMakeFiles/tracker.dir/src/tracker/Tracker.cpp.o \
@@ -132,6 +133,8 @@ libtracker.so: \
 /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crti.o:
 
 /usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o:
+
+CMakeFiles/tracker.dir/src/AreaCounter.cpp.o:
 
 CMakeFiles/tracker.dir/src/CloudManager.cpp.o:
 

@@ -3,6 +3,7 @@
 
 CMakeFiles/main.dir/demo/main.cpp.o
  /home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/demo/main.cpp
+ /home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/include/AreaCounter.h
  /home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/include/CloudManager.h
  /home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/include/tracker/KalmanFilter.h
  /home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/include/tracker/Tracker.h

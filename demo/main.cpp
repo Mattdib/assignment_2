@@ -3,6 +3,7 @@
 #include "viewer/Renderer.h"
 #include "tracker/Tracker.h"
 #include "CloudManager.h"
+#include "AreaCounter.h"
 #include <boost/filesystem.hpp>
 
 int main(int argc, char *argv[])
@@ -24,6 +25,10 @@ int main(int argc, char *argv[])
     // Instantiate the tracker
     Tracker tracker;
 
+    // Define a monitoring area and instantiate the area counter
+    // Area boundaries: x in [-3, 3], y in [-2, 2] (meters)
+    AreaCounter area_counter(-3.0, 3.0, -2.0, 2.0);
+
     // Spawn the thread that process the point cloud and performs the clustering
     CloudManager lidar_cloud(log_path, freq, renderer);
     std::thread t(&CloudManager::startCloudManager, &lidar_cloud); //invoco l'esecuzione del metodo startCloudManager della classe CloudManager in un thread separato, passando l'oggetto lidar_cloud come argomento. Questo permette di eseguire il metodo in parallelo al thread principale del main.
@@ -33,7 +38,7 @@ int main(int argc, char *argv[])
         // Clear the render
         renderer.clearViewer();
 
-        while (!lidar_cloud.new_measurement) //attendo che il thread lidar_cloud segnali che ci sono nuovi dati disponibili (new_measurement è un flag booleano che indica se c'è un nuovo frame da elaborare). Se non ci sono nuovi dati, il thread principale entra in un ciclo di attesa.
+        while (!lidar_cloud.new_measurement) //attendo che il thread lidar_cloud segnali che ci sono nuovi dati disponibili (new_measurement è un flag booleano che indica se c'è un nuovo frame da elaborare). Se non c'è, il thread principale entra in un ciclo di attesa.
             ; // wait for new data (we will execute the following code each 100ms)
 
         // Prendo il frame corrente che è stato processato all'interno di CloudManager::startCloudManager e ne estrepolo le sue informazioni (centroidi, bounding box, point cloud) per poterle renderizzare e trakkare gli oggetti rilevati.   
@@ -62,6 +67,16 @@ int main(int argc, char *argv[])
             renderer.addText(tracks[i].getX() + 0.01, tracks[i].getY() + 0.01, tracks[i].getId());
         }
 
+        // Aggiorno il contatore di persone all'interno dell'area, renderizzo l'area e stampo in bash il numero di persone uniche entrate nell'area almeno una volta e il numero di persone attualmente dentro l'area
+        area_counter.update(tracks);
+        renderer.renderArea(area_counter.getXMin(), area_counter.getXMax(),
+                            area_counter.getYMin(), area_counter.getYMax(),
+                            area_counter.getCurrentInsideIds().size());
+
+        std::cout << "Persone entrate nell'area: " << area_counter.getCount()
+                  << " (attualmente dentro: " << area_counter.getCurrentInsideIds().size() << ")" << std::endl;
+
+        //Stampo in bash il tracklet con il percorso più lungo
         std::pair<int, double> longest_track = tracker.getLongestTrack();
 
         if (longest_track.first != -1) {

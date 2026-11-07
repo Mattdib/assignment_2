@@ -32,6 +32,7 @@ file(GLOB tracker-SRC
     "src/tracker/Tracker.cpp"
     "src/viewer/Renderer.cpp"
     "src/CloudManager.cpp"
+    "src/AreaCounter.cpp"
 )
 
 set(tracker-LIBS ${PCL_LIBRARIES} pthread)
