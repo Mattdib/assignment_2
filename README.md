@@ -375,7 +375,3 @@ Rimanendo all'interno della cartella `build/`:
 
 ### Controlli da Tastiera e Interazione Visualizzatore:
 - **`v`**: Attiva o disattiva l'acquisizione delle misure del sensore LiDAR (permette di validare il comportamento del solo modello di predizione e testare la risposta al dropout).
-- **Mouse**:
-  - *Tasto sinistro + trascinamento*: rotazione della telecamera 3D.
-  - *Tasto destro + trascinamento / Rotella*: zoom in / zoom out.
-  - *Tasto centrale + trascinamento*: traslazione (pan) della visuale.
