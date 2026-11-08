@@ -13,7 +13,7 @@ void KalmanFilter::init(double dt) // inizializzo il Kalman Filter con il delta 
   dt_ = dt;
 
   // create a 4D state vector
-  x_ = Eigen::VectorXd(4); //inizializzo un vettore di stato a 4 dimensioni
+  x_ = Eigen::VectorXd(4); //inizializzo un vettore di stato a 4 dimensioni (posizione lungo x, posizione lungo y, velocità lungo x, velocità lungo y)
 
   // TODO: Initialize the state covariance matrix P
   P_ = Eigen::MatrixXd(4, 4); //inizializzo la matrice di covarianza dello stato a 4 dimensioni (posizione lungo x, posizione lungo y, velocità lungo x, velocità lungo y)
@@ -22,10 +22,24 @@ void KalmanFilter::init(double dt) // inizializzo il Kalman Filter con il delta 
       0., 0., 9999., 0.,
       0., 0., 0., 9999.;
 
-  // measurement covariance
+  // measurement covariance (varianza della misura del sensore pari a 0.0225 m^2, quindi deviazione standard pari a 0.15 m)
   R_ = Eigen::MatrixXd(2, 2); //inizializzo la matrice di covarianza della misura a 2 dimensioni (posizione lungo x, posizione lungo y)
   R_ << 0.0225, 0.,
       0., 0.0225;
+  
+  /*
+  // caso sovraffidamento del sensore (varianza della misura del sensore pari a 0.001 m^2, quindi deviazione standard pari a 0.0316 m)
+  R_ = Eigen::MatrixXd(2, 2); //inizializzo la matrice di covarianza della misura a 2 dimensioni (posizione lungo x, posizione lungo y)
+  R_ << 0.001, 0.,
+      0., 0.001;
+  */
+
+  /*
+  // caso eccessiva fiducia del modello, ossia LiDAR molto rumoroso (varianza della misura del sensore pari a 0.5 m^2, quindi deviazione standard pari a 0.7071 m)
+  R_ = Eigen::MatrixXd(2, 2); //inizializzo la matrice di covarianza della misura a 2 dimensioni (posizione lungo x, posizione lungo y)
+  R_ << 0.5, 0.,
+      0., 0.5;
+  */
 
   // measurement matrix
   H_ = Eigen::MatrixXd(2, 4); //inizializzo la matrice di misura, dove seleziono solo le prime due dimensioni dello stato (posizione lungo x, posizione lungo y) e ignoro le altre due dimensioni (velocità lungo x, velocità lungo y)
@@ -38,10 +52,16 @@ void KalmanFilter::init(double dt) // inizializzo il Kalman Filter con il delta 
       0., 1., 0., dt_,
       0., 0., 1., 0.,
       0., 0., 0., 1.;
-
+  
   // set the acceleration noise components
   double noise_ax_ = 2.; 
   double noise_ay_ = 2.;
+
+  /*
+  // eccessiva fiducia del modello (si assume che il pedone mantenga velocità costante)
+  double noise_ax_ = 0.05; 
+  double noise_ay_ = 0.05;
+  */
 
   double dt_2 = dt_ * dt_;
   double dt_3 = dt_2 * dt_;
