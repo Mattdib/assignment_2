@@ -51,16 +51,16 @@ flowchart TD
 ```
 
 ### Componenti Principali:
-1. **[CloudManager](file:///home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/include/CloudManager.h)**:
+1. **[CloudManager]**:
    - Viene eseguito in un thread dedicato (`std::thread t(&CloudManager::startCloudManager, &lidar_cloud)`).
    - Itera sequenzialmente sui file binari `.pcd` a frequenza fissa ($10\text{ Hz} \rightarrow 100\text{ ms}$).
    - Esegue il filtraggio della nuvola (Voxel Grid downsampling, rimozione del piano stradale tramite RANSAC segmentation) e l'estrazione dei cluster di pedoni tramite `pcl::EuclideanClusterExtraction`.
    - Calcola i centroidi $(x, y, z)$ e i relativi bounding box, notificando il thread principale con il flag `new_measurement = true` protetto da mutex `mtxData`.
-2. **[Tracker](file:///home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/include/tracker/Tracker.h)**:
+2. **[Tracker]**:
    - Riceve le coordinate 2D dei centroidi rilevati al frame corrente e gestisce il ciclo di vita delle tracce (*Tracklet*).
-3. **[AreaCounter](file:///home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/include/AreaCounter.h)**:
+3. **[AreaCounter]**:
    - Monitora una regione poligonale 2D nello spazio e tiene traccia in modo univoco dei pedoni che la attraversano.
-4. **[Renderer](file:///home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/include/viewer/Renderer.h)**:
+4. **[Renderer]**:
    - Incapsula `pcl::visualization::PCLVisualizer`.
    - Renderizza la point cloud colorata, i bounding box dei cluster, le circonferenze di stima del Filtro di Kalman con ID, e l'area delimitata con statistiche 3D.
    - Gestisce gli eventi di tastiera (callback interattiva: tasto `v` per simulare l'attivazione/disattivazione delle misure LiDAR).
@@ -69,7 +69,7 @@ flowchart TD
 
 ## 2. Approfondimento: Classe KalmanFilter
 
-La classe **[`KalmanFilter`](file:///home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/include/tracker/KalmanFilter.h)** modella la dinamica del pedone sul piano orizzontale $(x, y)$ attraverso un modello cinematico a **Velocità Costante (Constant Velocity - CV)**.
+La classe **[`KalmanFilter`]** modella la dinamica del pedone sul piano orizzontale $(x, y)$ attraverso un modello cinematico a **Velocità Costante (Constant Velocity - CV)**.
 
 ### Definizione dello Stato e delle Misure
 * **Vettore di stato** ($4\text{D}$):
@@ -119,8 +119,8 @@ La classe **[`KalmanFilter`](file:///home/ilpiova/Autonomous/assignment/assignme
 ## 3. Approfondimento: Classe Tracker e Tracklet
 
 Il modulo di tracking è costituito dalla combinazione di due classi:
-- **[`Tracklet`](file:///home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/include/tracker/Tracklet.h)**: rappresenta una singola entità monitorata.
-- **[`Tracker`](file:///home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/include/tracker/Tracker.h)**: coordina l'insieme di tutti i tracklet e gestisce la logica MOT.
+- **[`Tracklet`]**: rappresenta una singola entità monitorata.
+- **[`Tracker`]**: coordina l'insieme di tutti i tracklet e gestisce la logica MOT.
 
 ### 1. La classe `Tracklet`
 Ogni tracklet incapsula:
@@ -186,7 +186,7 @@ sequenceDiagram
 *Requisito: "Return the id and length of the path of the track that has traveled the longest path"*
 
 #### Logica e Modifiche al Codice:
-1. **Filtraggio del rumore e stima della distanza in [`Tracklet.cpp`](file:///home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/src/tracker/Tracklet.cpp)**:
+1. **Filtraggio del rumore e stima della distanza in [`Tracklet.cpp`]**:
    Per evitare che il rumore di misura del LiDAR o il jitter da fermo accumuli falsi metri di spostamento, è stata implementata una soglia minima di spostamento euclideo (`min_movement_threshold = 0.15 m`):
    ```cpp
    double Tracklet::getPathLength() const {
@@ -205,7 +205,7 @@ sequenceDiagram
        return total_length;
    }
    ```
-2. **Selezione globale in [`Tracker.cpp`](file:///home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/src/tracker/Tracker.cpp)**:
+2. **Selezione globale in [`Tracker.cpp`]**:
    Il metodo `Tracker::getLongestTrack()` interroga tutti i tracklet attivi ed estrae la coppia `<ID, lunghezza_massima>`:
    ```cpp
    std::pair<int, double> Tracker::getLongestTrack() const {
@@ -235,7 +235,7 @@ sequenceDiagram
 *Requisito: "Define an area and count the persons that has entered in that area"*
 
 #### Logica e Modifiche al Codice:
-1. **Creazione della classe [`AreaCounter`](file:///home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/include/AreaCounter.h)**:
+1. **Creazione della classe [`AreaCounter`]**:
    Definisce un bounding box rettangolare sul piano cartesiano: $x \in [x_{min}, x_{max}]$, $y \in [y_{min}, y_{max}]$.
    Mantiene due contenitori basati su `std::set<int>`:
    - `current_inside_ids_`: memorizza gli ID presenti nell'area al frame attuale.
@@ -252,7 +252,7 @@ sequenceDiagram
        }
    }
    ```
-2. **Estensione del [`Renderer`](file:///home/ilpiova/Autonomous/assignment/assignment_2/assignment_2/src/viewer/Renderer.cpp)**:
+2. **Estensione del [`Renderer`]**:
    Aggiunta della funzione `renderArea(...)` che visualizza il perimetro rettangolare dell'area con 4 linee 3D e stampa un testo 3D al centro dell'area contenente il conteggio delle persone presenti in tempo reale:
    ```cpp
    void Renderer::renderArea(double x_min, double x_max, double y_min, double y_max, int count, ...);
@@ -271,7 +271,6 @@ Il bilanciamento tra la matrice di covarianza del rumore di processo $Q$ e la ma
 $$K = P H^T (H P H^T + R)^{-1}$$
 Il guadagno $K$ agisce come fattore di peso ponderato tra la cinematica predetta dal modello matematico e l'osservazione geometrica restituita dal LiDAR. Di seguito vengono riportati i test condotti analizzando in particolare il **Cluster 1** (il target con la traiettoria più persistente nella scena).
 
----
 
 ### 5.1. Caso 1: $Q \gg R$ (Sovraffidamento del Sensore)
 * **Configurazione parametri**:
@@ -283,7 +282,6 @@ Il guadagno $K$ agisce come fattore di peso ponderato tra la cinematica predetta
 * **Conclusioni**:
   - Le coordinate estratte dal clustering LiDAR presentano già intrinsecamente un'eccellente accuratezza geometrica. Di conseguenza, forzare il filtro a fare massimo affidamento sulle misurazioni $z$ non introduce instabilità o oscillazioni numeriche significative, confermando l'alta qualità del segnale LiDAR.
 
----
 
 ### 5.2. Caso 2: $R \gg Q$ (Eccessiva Fiducia nel Modello Cinematico - Lag)
 * **Configurazione parametri**:
@@ -294,9 +292,8 @@ Il guadagno $K$ agisce come fattore di peso ponderato tra la cinematica predetta
   - Durante le transizioni di moto e le accelerazioni del pedone (Cluster 1), la circonferenza che descrive la stima del Kalman Filter rimane indietro rispetto al centro effettivo del cluster.
   - Solo quando il pedone rallenta o si arresta, il filtro riesce progressivamente a recuperare l'errore e a riallinearsi sulla posizione stazionaria.
 * **Conclusioni**:
-  - Ponendo $R \gg Q$, il guadagno di Kalman $K$ collassa a valori prossimi allo zero ($K \to 0$). Il filtro rigetta le novità introdotte dalle misure $z$ e accorda priorità all'inerzia del modello cinematico. In presenza di manovre, cambi di passo o curve, il modello a velocità costante non è in grado di adattarsi tempestivamente, accumulando un errore di ritardo.
+  - Ponendo $R \gg Q$, il guadagno di Kalman $K$ collassa a valori prossimi allo zero ($K \to 0$). In presenza di manovre, cambi di passo o curve, il modello a velocità costante non è in grado di adattarsi tempestivamente, accumulando un errore di ritardo.
 
----
 
 ### 5.3. Caso 3: Dropout del Sensore LiDAR
 * **Configurazione ed Esperimento**:
@@ -304,13 +301,12 @@ Il guadagno $K$ agisce come fattore di peso ponderato tra la cinematica predetta
 * **Osservazioni ed Evidenze Sperimentali**:
   - Il filtro esegue iterativamente solo il passo di predizione:
     $$P_{k|k-1} = F P_{k-1|k-1} F^T + Q$$
-  - In assenza del passo di correzione (che tramite $P = (I - KH)P$ contrae l'incertezza), la matrice di covarianza $P$ cresce a ogni ciclo per via della somma continua di $Q$.
+  - In assenza del passo di correzione (il quale contrae l'incertezza), la matrice di covarianza $P$ cresce a ogni ciclo per via della somma continua di $Q$.
   - Nel giro di pochissimi frame consecutivi, gli elementi diagonali superano la soglia critica impostata (`covariance_threshold = 5.0`).
   - Contestualmente, il contatore dei frame persi supera `loss_threshold = 5`. La funzione `removeTracks()` interviene ed elimina i tracklet dalla scena.
 * **Conclusioni**:
   - Il meccanismo di rimozione basato su duplice soglia (temporale e di covarianza) impedisce efficacemente la proliferazione di tracce fantasma (*ghost tracks*), garantendo la sicurezza del sistema in scenari di occlusione prolungata o guasto del sensore.
 
----
 
 ### 5.4. Tabella Riassuntiva dei Test
 
